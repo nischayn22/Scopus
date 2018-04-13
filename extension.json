@@ -1,0 +1,32 @@
+{
+	"name": "Scopus",
+	"version": "0.1 beta",
+	"author": [
+		"Nischay Nahata",
+		"Wikiworks.com"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Scopus",
+	"descriptionmsg": "scopus-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"MessagesDirs": {
+		"Scopus": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"ScopusHooks": "Scopus.hooks.php"
+	},
+	"config": {
+		"wgScopusApiKey": null
+	},
+	"ExtensionMessagesFiles": {
+		"ScopusHooksMagic": "Scopus.i18n.magic.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"ScopusHooks::onParserFirstCallInit"
+		]
+	},
+	"manifest_version": 1
+}
