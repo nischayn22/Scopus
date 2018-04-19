@@ -41,7 +41,14 @@ class ScopusHooks {
 		$result = self::httpRequest( "https://api.elsevier.com/content/search/scopus?query=DOI($document_key)", '', array(
 			"X-ELS-APIKey: $wgScopusApiKey"
 		) );
-		$result = json_decode( $result, true )['search-results']['entry'][0];
+
+		$result = json_decode( $result, true );
+
+		if ( !array_key_exists( 'search-results', $result ) ) {
+			return '';
+		}
+
+		$result = $result['search-results']['entry'][0];
 
 		if ( empty( $result ) ) {
 			return '';
